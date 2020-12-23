@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message TimeData {
+  uint64 timestamp = 1;
+  string UTCTime = 2;
+}
+
+message ClientData {
+  string name = 1;
+}
+
+service TimeBroadcaster {
+  rpc SubscribeToBroadcast(ClientData) returns (stream TimeData) {}
+}
